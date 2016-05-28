@@ -1,0 +1,46 @@
+{
+  "name": "aupair-cli",
+  "version": "0.1.0",
+  "description": "An au-pair console client",
+  "keywords": "health, status, check, health check, status check, au-pair, au pair",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bunk/aupair-cli.git"
+  },
+  "bin": {
+    "aupair": "./index.js"
+  },
+  "scripts": {
+    "lint": "eslint --ignore-path .gitignore ./",
+    "test": "npm run lint && npm run coverage",
+    "test-and-exit": "NODE_ENV=test mocha --compilers js:babel-register -r ./spec-helpers -R spec 'src/**/*.spec.js'",
+    "test-watch": "NODE_ENV=test mocha -w --compilers js:babel-register -r ./spec-helpers -R spec 'src/**/*.spec.js'",
+    "coverage": "nyc -r text-summary -r html --require=babel-register -- npm run test-and-exit",
+    "show-coverage": "open ./coverage/index.html"
+  },
+  "author": "JD Courtoy <jd.courtoy@leankit.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^6.0.4",
+    "babel-istanbul": "^0.8.0",
+    "babel-polyfill": "^6.9.0",
+    "chai": "^3.5.0",
+    "eslint": "^2.10.2",
+    "eslint-config-leankit": "^2.0.0",
+    "eslint-plugin-babel": "^3.2.0",
+    "mocha": "^2.5.3",
+    "nock": "^8.0.0",
+    "nyc": "^6.4.4",
+    "sinon": "^1.17.4",
+    "sinon-as-promised": "^4.0.0"
+  },
+  "dependencies": {
+    "babel-plugin-add-module-exports": "^0.1.2",
+    "babel-preset-node5": "^11.0.2",
+    "babel-register": "^6.7.2",
+    "commander": "^2.9.0"
+  },
+  "engines": {
+    "node": ">= 5"
+  }
+}
